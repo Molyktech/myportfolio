@@ -6,6 +6,7 @@
 
 body {
     color: #fff;
+    background: pink
 }
 
 body#bg-img {
@@ -35,7 +36,6 @@ body#bg-img:after {
 .main-content {
     position: relative;
     max-width: 60%;
-    text-align: center;
 }
 
 .text-secondary {
@@ -45,6 +45,7 @@ body#bg-img:after {
 h1 {
     font-weight: 600;
     font-size: 60px;
+    margin: 0;
 }
 
 .btn-menu {
@@ -305,15 +306,36 @@ hidden (-100% on the Y axis):*/
 
 @media screen and (max-height: 31.125em) {
     .btn-menu ul li a:before {
-        font-size: 32px;
+        font-size: 30px;
     }
     h1 {
         text-align: center;
     }
+}
+
+@media screen and (max-width: 30em) {
     body {
-        margin: 0;
+        font-size: 90%;
     }
+    body#bg-img {
+        background: url(../img/hero2.jpeg);
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    h1 {
+        font-size: 47px;
+    }
+}
+
+@media screen and (max-height: 29em) {
     .container {
-        padding: 60px;
+        height: auto;
+    }
+    .main-content {
+        position: relative;
+        height: auto;
+        max-width: 100%;
     }
 }
