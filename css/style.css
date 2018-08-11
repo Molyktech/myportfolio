@@ -9,7 +9,7 @@ body {
 }
 
 .container {
-    padding: 50px;
+    padding: 80px;
     background: url(../img/hero2.jpeg);
     background-attachment: fixed;
     background-size: cover;
