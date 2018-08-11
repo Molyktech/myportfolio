@@ -326,11 +326,25 @@ hidden (-100% on the Y axis):*/
     h1 {
         font-size: 47px;
     }
+    .btn-menu ul li a:before {
+        font-size: 26px;
+    }
+    .btn-menu ul li a {
+        margin-top: 15px;
+        font-size: 16px;
+    }
 }
 
 @media screen and (max-height: 29em) {
     .container {
         height: auto;
+    }
+    .btn-menu ul li a:before {
+        font-size: 26px;
+    }
+    .btn-menu ul li a {
+        margin-top: 15px;
+        font-size: 16px;
     }
     .main-content {
         position: relative;
