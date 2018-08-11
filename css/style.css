@@ -29,7 +29,7 @@ body#bg-img:after {
 }
 
 .container {
-    padding: 80px;
+    padding: 50px;
     /* for space around the content.*/
 }
 
@@ -306,7 +306,11 @@ hidden (-100% on the Y axis):*/
 
 @media screen and (max-height: 31.125em) {
     .btn-menu ul li a:before {
-        font-size: 30px;
+        font-size: 26px;
+    }
+    .btn-menu ul li a {
+        margin-top: 20px;
+        font-size: 16px;
     }
     h1 {
         text-align: center;
