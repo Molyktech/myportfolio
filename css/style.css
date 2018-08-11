@@ -1,0 +1,319 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    color: #fff;
+}
+
+body#bg-img {
+    background: url(../img/hero2.jpeg);
+    background-attachment: fixed;
+    background-size: contain;
+    background-position: right;
+    background-repeat: no-repeat;
+}
+
+body#bg-img:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: -1;
+}
+
+.container {
+    padding: 80px;
+    /* for space around the content.*/
+}
+
+.main-content {
+    position: relative;
+    max-width: 60%;
+    text-align: center;
+}
+
+.text-secondary {
+    color: #053113;
+}
+
+h1 {
+    font-weight: 600;
+    font-size: 60px;
+}
+
+.btn-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    border: 0px solid #333;
+    background-color: rgba(0, 0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    -webkit-transition: border-width 0.3s, background-color 0.3s, height 0s 0.3s;
+    transition: border-width 0.3s, background-color 0.3s, height 0s 0.3s;
+}
+
+.btn-menu.btn-menu.btn-menu-open {
+    height: 100%;
+    border-width: 30px 30px 30px 90px;
+    background-color: rgba(0, 0, 0, 0.3);
+    -webkit-transition: border-width 0.3s, background-color 0.3s;
+    transition: border-width 0.3s, background-color 0.3s;
+}
+
+.btn-overlay {
+    position: absolute;
+    width: 100%;
+}
+
+/* when menu is open have full height*/
+
+.btn-menu-open .btn-overlay {
+    height: 100%;
+}
+
+.btn-menu-icon {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: block;
+    margin: 0 0 5px 5px;
+    width: 80px;
+    height: 80px;
+    font-size: 0px;
+    cursor: pointer;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.btn-menu-icon:before,
+.btn-menu-icon:after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 6px;
+    height: 48px;
+    background: #fff;
+    content: '';
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.btn-menu-icon:after {
+    -webkit-transform: translateX(-50%) translateY(-50%) rotate(90deg);
+    transform: translateX(-50%) translateY(-50%) rotate(90deg);
+}
+
+.btn-menu-close .btn-menu-icon:before {
+    -webkit-animation: plusVertical 0.3s ease forwards;
+    animation: plusVertical 0.3s ease forwards;
+}
+
+.btn-menu-close .btn-menu-icon:after {
+    -webkit-animation: plusHorizontal 0.3s ease forwards;
+    animation: plusHorizontal 0.3s ease forwards;
+}
+
+.btn-menu-open .btn-menu-icon:before {
+    -webkit-animation: minusVertical 0.3s ease forwards;
+    animation: minusVertical 0.3s ease forwards;
+}
+
+.btn-menu-open .btn-menu-icon:after {
+    -webkit-animation: minusHorizontal 0.3s ease forwards;
+    animation: minusHorizontal 0.3s ease forwards;
+}
+
+@-webkit-keyframes plusVertical {
+    from {
+        height: 0px;
+    }
+    to {
+        height: 48px;
+    }
+}
+
+@keyframes plusVertical {
+    from {
+        height: 0px;
+    }
+    to {
+        height: 48px;
+    }
+}
+
+@-webkit-keyframes plusHorizontal {
+    50% {
+        height: 60px;
+    }
+}
+
+@keyframes plusHorizontal {
+    50% {
+        height: 60px;
+    }
+}
+
+@-webkit-keyframes minusVertical {
+    to {
+        height: 0px;
+    }
+}
+
+@keyframes minusVertical {
+    to {
+        height: 0px;
+    }
+}
+
+@-webkit-keyframes minusHorizontal {
+    50% {
+        height: 60px;
+    }
+}
+
+@keyframes minusHorizontal {
+    50% {
+        height: 60px;
+    }
+}
+
+/* fixed position set to the left side of the window*/
+
+.btn-menu ul {
+    position: fixed;
+    bottom: 100px;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    width: 90px;
+    list-style-type: none;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.btn-menu ul {
+    position: fixed;
+    bottom: 100px;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    width: 90px;
+    list-style: none;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+/*set the list items and the anchors to display: block and give them full width:*/
+
+.btn-menu ul li,
+.btn-menu ul li a {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+/*Each list item will be hidden initially and the opacity will be 0. The “backward” transition of the visibility will be delayed 
+until all the other transitions of the transform and the opacity are finished*/
+
+.btn-menu ul li {
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: -webkit-transform 0.3s, opacity 0.2s, visibility 0s 0.3s;
+    -moz-transition: -moz-transform 0.3s, opacity 0.2s, visibility 0s 0.3s;
+    transition: transform 0.3s, opacity 0.2s, visibility 0s 0.3s;
+    -webkit-transform: translate3d(-100%, 0, 0);
+    -moz-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+}
+
+/*transform each of the list items differently so that they are all placed in the middle and to the left until they are 
+hidden (-100% on the Y axis):*/
+
+.btn-menu.btn-menu-open ul li:nth-child(5) {
+    -webkit-transition-delay: 0.05s;
+    transition-delay: 0.05s;
+}
+
+.btn-menu.btn-menu-open ul li:nth-child(4) {
+    -webkit-transition-delay: 0.1s;
+    transition-delay: 0.1s;
+}
+
+.btn-menu.btn-menu-open ul li:nth-child(3) {
+    -webkit-transition-delay: 0.15s;
+    transition-delay: 0.15s;
+}
+
+.btn-menu.btn-menu-open ul li:nth-child(2) {
+    -webkit-transition-delay: 0.2s;
+    transition-delay: 0.2s;
+}
+
+.btn-menu.btn-menu-open ul li:first-child {
+    -webkit-transition-delay: 0.25s;
+    transition-delay: 0.25s;
+}
+
+.btn-menu.btn-menu-open ul li {
+    visibility: visible;
+    opacity: 1;
+    -webkit-transition: -webkit-transform 0.3s, opacity 0.3s 0.1s;
+    transition: transform 0.3s, opacity 0.3s;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+/*set the font-sixe to 0 and color to transparent to hide the text*/
+
+.btn-menu ul li a {
+    margin-top: 30px;
+    outline: none;
+    color: pink;
+    text-decoration: none;
+    font-size: 22px;
+}
+
+.btn-menu ul li a:before {
+    color: #fff;
+    font-size: 48px;
+    /* use px cos em wont work since the original is set to 0px i.e the parent element*/
+    -webkit-transition: color 0.2s;
+    transition: color 0.2s;
+}
+
+.btn-menu ul li a:hover:before,
+.btn-menu ul li a:focus:before {
+    color: #e67e22;
+}
+
+/*make icons smaller on mobile screens*/
+
+@media screen and (max-height: 31.125em) {
+    .btn-menu ul li a:before {
+        font-size: 32px;
+    }
+    h1 {
+        text-align: center;
+    }
+    body {
+        margin: 0;
+    }
+    .container {
+        padding: 60px;
+    }
+}
